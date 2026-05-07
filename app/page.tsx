@@ -302,7 +302,7 @@ export default function Home() {
         </details>
         <details>
           <summary>È disponibile una navetta per il mare?</summary>
-          <p>Sì, durante la stagione estiva è disponibile il servizio navetta comunale che collega il centro e le spiagge di San Nicola Arcella tra cui quelle dell'Arcomagno e Torre Crawford.
+          <p>Sì, durante la stagione estiva è disponibile il servizio navetta comunale che collega il centro e le spiagge di San Nicola Arcella tra cui quelle dell&apos;Arcomagno e Torre Crawford.
           <br />Maggiori informazioni, orari e fermate sono disponibili nella scheda ufficiale del servizio.
           </p>
           <a
