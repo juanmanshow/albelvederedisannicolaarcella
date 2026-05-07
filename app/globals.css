@@ -265,9 +265,22 @@ h3 {
 }
 
 .placeImage {
-  background:
-    linear-gradient(rgba(111, 158, 181, 0.2), rgba(111, 158, 181, 0.2)),
-    url('/images/san-nicola.jpg') center/cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 700px;
+}
+
+.placeImageSlide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+}
+
+.placeImageSlide.active {
+  opacity: 1;
 }
 
 .placeText {
@@ -280,7 +293,7 @@ h3 {
 .amenityGrid {
   margin-top: 44px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
 
@@ -512,12 +525,10 @@ footer {
     padding: 120px 24px;
   }
 
-  .placeImage {
-    min-height: 420px;
-  }
 
   h1 {
-    font-size: 56px;
+    font-size: 45px;
+    line-height: 1.05;
   }
 
   h2 {
@@ -545,6 +556,15 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
+  }
+  .sectionHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  
+  .sectionHead .sectionLabel {
+    margin-bottom: 0;
   }
 }
 .whatsappBtn:hover {
@@ -875,7 +895,8 @@ footer {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 80;
+    z-index: 120;
+    color: currentColor;
   }
 
   .menuToggle span {
@@ -883,6 +904,7 @@ footer {
     height: 1px;
     background: currentColor;
     display: block;
+    transition: all 0.35s ease;
   }
 
   .mobileMenu {
@@ -890,7 +912,7 @@ footer {
     inset: 0;
     background: var(--cream);
     color: var(--navy);
-    z-index: 70;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -898,16 +920,45 @@ footer {
     gap: 34px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.35s ease;
+    transform: translateY(-12px);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
   }
 
   .mobileMenu.open {
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
   }
 
   .mobileMenu a {
     font-family: Georgia, serif;
     font-size: 34px;
+    color: var(--navy);
   }
+
+  .nav.menuIsOpen {
+    color: var(--navy);
+  }
+  .brandTitle {
+    font-size: 17px;
+  }
+}
+
+
+
+.amenityGrid span {
+  background: #f8f5f1;
+  padding: 28px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 0px solid rgba(23, 55, 70, 0.06);
+}
+
+.amenityGrid svg {
+  color: var(--blue-dark);
+  flex-shrink: 0;
 }
