@@ -1,6 +1,7 @@
 export default function Home() {
   return (
     <main className="bg-[#f5f1e8] text-white">
+
       <section
         className="relative h-screen bg-cover bg-center flex items-center justify-center"
         style={{
@@ -12,7 +13,7 @@ export default function Home() {
 
         <div className="relative z-10 text-center px-6">
           <h1 className="text-5xl md:text-8xl font-light mb-6">
-            Al Belvedere di SNA
+            Tenuta Acqua della Quercia
           </h1>
 
           <p className="max-w-2xl mx-auto text-lg md:text-2xl text-[#f5f1e8]">
@@ -25,6 +26,7 @@ export default function Home() {
           </button>
         </div>
       </section>
+
     </main>
   );
 }
