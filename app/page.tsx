@@ -278,6 +278,11 @@ export default function Home() {
           <img src="/images/sofa2.jpg" alt="Relax area apartment Calabria"
  />
         </div>
+        <div className="galleryCta">
+          <a href="#apartments" className="placeButton">
+            Scopri gli appartamenti
+          </a>
+        </div>
       </section>
 
       <section className="faq">
@@ -285,11 +290,41 @@ export default function Home() {
         <h2>Informazioni utili</h2>
         <details>
           <summary>Dove si trovano gli appartamenti?</summary>
-          <p>A San Nicola Arcella, in posizione comoda per raggiungere mare, borgo e principali attrazioni.</p>
+          <p>Gli appartamenti si trovano a San Nicola Arcella, in una posizione strategica e tranquilla, a pochi passi dal centro storico e vicinissimi al celebre Belvedere panoramico che affaccia sul Golfo di Policastro.
+          <br /><br />È possibile raggiungere facilmente a piedi ristoranti, bar, piazzette e principali attrazioni del borgo, mantenendo però la comodità di arrivare direttamente in auto sotto casa.
+          <br />Gli appartamenti si trovano in un residence riservato e silenzioso, al primo e ultimo piano, ideale per rilassarsi dopo una giornata tra mare e Riviera dei Cedri.</p>
         </details>
         <details>
           <summary>È disponibile il posto auto?</summary>
-          <p>Sì, gli appartamenti dispongono di posto auto.</p>
+          <p>Sì, gli appartamenti dispongono di posto auto. Uno dentro il cortile del residence ed uno nel parcheggio pubblico riservato ai residenti. In ogni caso, il parcheggio è incluso nel prezzo.
+          <br />  <br /> Dal 1 Giugno al 31 Agosto, sarà necessario comunicare la Targa del proprio veicolo per accedere alla ZTL.
+          </p>
+        </details>
+        <details>
+          <summary>È disponibile una navetta per il mare?</summary>
+          <p>Sì, durante la stagione estiva è disponibile il servizio navetta comunale che collega il centro e le spiagge di San Nicola Arcella tra cui quelle dell'Arcomagno e Torre Crawford.
+          <br />Maggiori informazioni, orari e fermate sono disponibili nella scheda ufficiale del servizio.
+          </p>
+          <a
+            href="https://www.autoservizipreite.it/orari/aut_preite_36.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <br /><strong>Consulta orari e fermate della navetta QUI</strong>
+          </a>
+        </details>
+        <details>
+          <summary>Cosa è fornito con l’appartamento?</summary>
+
+          <p>
+            Gli appartamenti sono forniti di tutto l’essenziale per il soggiorno:
+            cucina attrezzata con stoviglie, piatti, bicchieri, posate, pentole e padelle,
+            oltre a olio, sale e caffè per le prime necessità.
+            <br /><br />
+
+            Sono inoltre inclusi asciugamani e biancheria da letto pulita per ogni ospite:
+            un set piccolo, medio e grande di asciugamani e lenzuola complete.
+          </p>
         </details>
         <details>
           <summary>Come posso prenotare?</summary>
