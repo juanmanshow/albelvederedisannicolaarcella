@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import './globals.css';
+import Link from 'next/link';
 
 const apartments = [
   {
@@ -18,6 +19,7 @@ const apartments = [
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -37,7 +39,7 @@ export default function Home() {
       <div className="brand">
         <img
           src={scrolled ? '/images/logo-dark.png' : '/images/logo-white.png'}
-          alt="Al Belvedere"
+          alt="Logo Al Belvedere di San Nicola Arcella"
           className="brandLogo"
         />
 
@@ -55,6 +57,22 @@ export default function Home() {
           <a href="#contact">Contatti</a>
           <a href="#contact">FAQ</a>
         </nav>
+        <button
+          className="menuToggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Open menu"
+        >
+          <span />
+          <span />
+        </button>
+
+        <div className={`mobileMenu ${menuOpen ? 'open' : ''}`}>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Prenota</a>
+          <a href="#apartments" onClick={() => setMenuOpen(false)}>Appartamenti</a>
+          <a href="#place" onClick={() => setMenuOpen(false)}>San Nicola Arcella</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>Contatti</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>FAQ</a>
+        </div>
       </header>
 
       <section className="hero">
@@ -172,18 +190,20 @@ export default function Home() {
         </div>
 
         <div className="amenityStrip">
-          <img src="/images/kitchen1.jpg" alt="" />
-          <img src="/images/bathroom1.jpg" alt="" />
-          <img src="/images/detail1.jpg" alt="" />
-          <img src="/images/balcony1.jpg" alt="" />
-          <img src="/images/bedroom1.jpg" alt="" />
-          <img src="/images/sofa1.jpg" alt="" />
-          <img src="/images/kitchen2.jpg" alt="" />
-          <img src="/images/bathroom2.jpg" alt="" />
-          <img src="/images/detail2.jpg" alt="" />
-          <img src="/images/external_view.jpg" alt="" />
-          <img src="/images/bedroom2.jpg" alt="" />
-          <img src="/images/sofa2.jpg" alt="" />
+          <img src="/images/kitchen1.jpg"     alt="Mediterranean kitchen apartment in San Nicola Arcella"
+ />
+          <img src="/images/bathroom1.jpg" alt="Private bathroom apartment Calabria" />
+          <img src="/images/detail1.jpg" alt="Interior design detail Al Belvedere apartment" />
+          <img src="/images/balcony1.jpg" alt="Balcony apartment in San Nicola Arcella" />
+          <img src="/images/bedroom1.jpg" alt="Bedroom apartment near Arcomagno" />
+          <img src="/images/sofa1.jpg" alt="Living room apartment Calabria" />
+          <img src="/images/kitchen2.jpg" alt="Equipped kitchen holiday apartment Calabria" />
+          <img src="/images/bathroom2.jpg" alt="Modern bathroom Al Belvedere" />
+          <img src="/images/detail2.jpg" alt="Mediterranean apartment details" />
+          <img src="/images/external_view.jpg" alt="Exterior view San Nicola Arcella apartment" />
+          <img src="/images/bedroom2.jpg" alt="Bright bedroom Riviera dei Cedri apartment" />
+          <img src="/images/sofa2.jpg" alt="Relax area apartment Calabria"
+ />
         </div>
       </section>
 
@@ -242,65 +262,79 @@ export default function Home() {
 
       <footer className="footer">
 
-  <div className="footerTop">
+        <div className="footerTop">
 
-    <div className="footerBrand">
+          <div className="footerBrand">
 
-      <img
-        src="/images/icon.png"
-        alt="Al Belvedere di San Nicola Arcella"
-        className="footerLogo"
-      />
+            <img
+              src="/images/icon.png"
+              alt="Logo Al Belvedere di San Nicola Arcella"
+              className="footerLogo"
+            />
 
-      <h3 className="footerBrandTitle">
-        Appartamenti “Al Belvedere di San Nicola Arcella”
-      </h3>
+            <h3 className="footerBrandTitle">
+              Appartamenti “Al Belvedere di San Nicola Arcella”
+            </h3>
 
-      <p className="footerAddress">
-        Corso Umberto I, 12
-        <br />
-        San Nicola Arcella 87020
-      </p>
+            <span className="footerTagline">
+              Boutique apartments in Calabria
+            </span>
 
-      <span className="footerTagline">
-        Boutique apartments in Calabria
-      </span>
+          </div>
 
-    </div>
+          <div className="footerColumn">
 
-    <div className="footerColumn">
-      <h4>Contatti</h4>
+            <h4>Informazioni</h4>
 
-      <a href="tel:+393485721282">
-        +39 348 572 1282
-      </a>
+            <p>
+              Corso Umberto I, 12
+              <br />
+              San Nicola Arcella 87020
+              <br />
+              Calabria, Italia
+              <br />
+              <br />
+              CIN: IT078125C2YDTUYBJV
+              <br />
+              CIR: 078125-AAT-00066
+            </p>
 
-      <a href="mailto:giovanniesposito99.ge@gmail.com">
-        giovanniesposito99.ge@gmail.com
-      </a>
+            
 
-      <p>
-        San Nicola Arcella (CS), Calabria
-      </p>
-    </div>
+          </div>
 
-    <div className="footerColumn">
-      <h4>Informazioni</h4>
+          <div className="footerColumn">
 
-      <p>CIN: in aggiornamento</p>
+            <h4>Contatti</h4>
 
-      <a href="#">Privacy Policy</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#faq">FAQ</a>
-    </div>
+            <a href="tel:+393485721282">
+              +39 348 572 1282
+            </a>
 
-  </div>
+            <a href="mailto:giovanniesposito99.ge@gmail.com">
+              giovanniesposito99.ge@gmail.com
+            </a>
+            
 
-  <div className="footerBottom">
-    © 2026 Al Belvedere di San Nicola Arcella · All rights reserved
-  </div>
+          </div>
 
-</footer>
+        </div>
+
+        <div className="footerBottom">
+
+          <span>
+            © 2026 Al Belvedere di San Nicola Arcella · All rights reserved
+          </span>
+
+          <div className="footerBottomLinks">
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <span>·</span>
+            <Link href="/cookie-policy">Cookie Policy</Link>
+          </div>
+
+        </div>
+
+      </footer>
       
       
       <button
@@ -314,3 +348,4 @@ export default function Home() {
     </main>
   );
 }
+

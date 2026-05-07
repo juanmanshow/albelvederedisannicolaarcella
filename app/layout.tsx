@@ -5,33 +5,32 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Al Belvedere di San Nicola Arcella',
+  title: {
+    default: 'Al Belvedere di San Nicola Arcella',
+    template: '%s | Al Belvedere',
+  },
   description:
-    'Boutique apartments in San Nicola Arcella, Calabria. Mediterranean stays between sea, relaxation and Riviera dei Cedri.',
-
+    'Boutique apartments in San Nicola Arcella, Calabria. Appartamenti mediterranei vicino all’Arcomagno e alla Riviera dei Cedri.',
   keywords: [
     'San Nicola Arcella',
     'Al Belvedere',
+    'Appartamenti San Nicola Arcella',
+    'Casa vacanze Calabria',
     'Apartments Calabria',
-    'Holiday house Calabria',
     'Arcomagno',
     'Riviera dei Cedri',
     'Praia a Mare',
     'Scalea',
-    'Vacation rental Calabria',
   ],
-
   metadataBase: new URL('https://albelvederedisannicolaarcella.com'),
-
   openGraph: {
     title: 'Al Belvedere di San Nicola Arcella',
     description:
-      'Boutique apartments in San Nicola Arcella, Calabria.',
-    url: 'https://albelvederedisannicolaarcella.com',
+      'Boutique apartments in San Nicola Arcella, Calabria, near Arcomagno and Riviera dei Cedri.',
+    url: '/',
     siteName: 'Al Belvedere di San Nicola Arcella',
     locale: 'it_IT',
     type: 'website',
-
     images: [
       {
         url: '/images/hero.jpg',
@@ -41,15 +40,13 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: 'summary_large_image',
     title: 'Al Belvedere di San Nicola Arcella',
     description:
-      'Boutique apartments in Calabria between sea and Riviera dei Cedri.',
+      'Boutique apartments in Calabria between sea, Arcomagno and Riviera dei Cedri.',
     images: ['/images/hero.jpg'],
   },
-
   icons: {
     icon: '/icon.png',
     shortcut: '/icon.png',
@@ -68,3 +65,4 @@ export default function RootLayout({
     </html>
   );
 }
+
