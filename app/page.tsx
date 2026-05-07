@@ -97,20 +97,18 @@ export default function Home() {
         <button
           className="menuToggle"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Open menu"
-        >
+          aria-label="Open menu">
           <span />
           <span />
         </button>
-
-        <div className={`mobileMenu ${menuOpen ? 'open' : ''}`}>
+      </header>
+      <div className={`mobileMenu ${menuOpen ? 'open' : ''}`}>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Prenota</a>
           <a href="#apartments" onClick={() => setMenuOpen(false)}>Appartamenti</a>
           <a href="#place" onClick={() => setMenuOpen(false)}>San Nicola Arcella</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contatti</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>FAQ</a>
         </div>
-      </header>
 
       <section className="hero">
         <div className="heroOverlay" />

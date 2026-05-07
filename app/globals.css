@@ -238,7 +238,7 @@ h3 {
 .sectionHead {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   margin-bottom: 48px;
 }
 
@@ -911,7 +911,7 @@ footer {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 120;
+    z-index: 1002;
     color: currentColor;
   }
 
@@ -923,12 +923,20 @@ footer {
     transition: all 0.35s ease;
   }
 
+  .nav.menuIsOpen {
+    z-index: 1001;
+    color: var(--navy);
+  }
+
   .mobileMenu {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
     background: var(--cream);
     color: var(--navy);
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -936,16 +944,12 @@ footer {
     gap: 34px;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-12px);
-    transition:
-      opacity 0.35s ease,
-      transform 0.35s ease;
+    transition: opacity 0.35s ease;
   }
 
   .mobileMenu.open {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
   }
 
   .mobileMenu a {
@@ -954,9 +958,6 @@ footer {
     color: var(--navy);
   }
 
-  .nav.menuIsOpen {
-    color: var(--navy);
-  }
   .brandTitle {
     font-size: 17px;
   }
