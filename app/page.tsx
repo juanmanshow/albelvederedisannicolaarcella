@@ -3,6 +3,16 @@
 import { useEffect, useState } from 'react';
 import './globals.css';
 import Link from 'next/link';
+import {
+  MapPin,
+  Car,
+  Snowflake,
+  CookingPot,
+  Bath,
+  Sofa,
+  Sheet,
+  Smartphone,
+} from 'lucide-react';
 
 const apartments = [
   {
@@ -16,9 +26,20 @@ const apartments = [
     features: ['Camera da letto', 'Divano letto', 'Cucina attrezzata', 'Bagno privato', 'Posto auto','Aria Condizionata'],
   },
 ];
+const placeImages = [
+  '/images/san-nicola.jpg',
+  '/images/san-nicola2.jpg',
+  '/images/Arco di Enea.jpg',
+  '/images/centro storico.jpg',
+  '/images/golfo.jpg',
+  '/images/Qcece.jpg',
+  '/images/scalette arcomagno.jpg',
+  '/images/Torre Crawford.jpg',
+];
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [placeImageIndex, setPlaceImageIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({
@@ -32,9 +53,25 @@ export default function Home() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlaceImageIndex((current) => (current + 1) % placeImages.length);
+    }, 7000);
+  
+    return () => clearInterval(interval);
+  }, []);
+  
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);;
   return (
     <main>
-      <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
+      <header className={`nav ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menuIsOpen' : ''}`}>
         
       <div className="brand">
         <img
@@ -162,7 +199,17 @@ export default function Home() {
       </section>
 
       <section id="place" className="place">
-        <div className="placeImage" />
+      <div className="placeImage">
+        {placeImages.map((image, index) => (
+          <div
+            key={image}
+            className={`placeImageSlide ${index === placeImageIndex ? 'active' : ''}`}
+            style={{
+              backgroundImage: `linear-gradient(rgba(111, 158, 181, 0.2), rgba(111, 158, 181, 0.2)), url('${image}')`,
+            }}
+          />
+        ))}
+      </div>
         <div className="placeText">
           <p className="sectionLabel">Discover</p>
           <h2>San Nicola Arcella</h2>
@@ -181,12 +228,38 @@ export default function Home() {
         <p className="sectionLabel">Comfort</p>
         <h2>Servizi essenziali, atmosfera curata.</h2>
         <div className="amenityGrid">
-          <span>Cucina attrezzata</span>
-          <span>Posto auto</span>
-          <span>Aria condizionata</span>
-          <span>Bagno privato</span>
-          <span>Divano letto</span>
-          <span>Posizione strategica</span>
+          <span>
+            <MapPin size={20} />
+            Posizione centrale
+          </span>
+          <span>
+            <Car size={20} />
+            Posto auto
+          </span>
+          <span>
+            <Snowflake size={20} />
+            Aria condizionata
+          </span>
+          <span>
+            <CookingPot size={20} />
+            Cucina attrezzata
+          </span>
+          <span>
+            <Bath size={20} />
+            Bagno privato
+          </span>
+          <span>
+            <Sofa size={20} />
+            Divano letto
+          </span>
+          <span>
+            <Sheet size={20} />
+            Biancheria inclusa
+          </span>
+          <span>
+            <Smartphone size={20} />
+            Check-In da remoto
+          </span>
         </div>
 
         <div className="amenityStrip">
