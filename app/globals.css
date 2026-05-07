@@ -3,25 +3,309 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --blue: #6f9eb5;
+  --navy: #193746;
+  --sand: #e8dcc8;
+  --cream: #faf7f0;
+  --stone: #b9aa94;
+  --text: #223238;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.brand {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  letter-spacing: 0.04em;
+}
+
+.nav nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 120px 8%;
+  background:
+    linear-gradient(rgba(20, 45, 55, 0.25), rgba(20, 45, 55, 0.45)),
+    url('/images/hero.jpg') center/cover;
+}
+
+.heroContent {
+  position: relative;
+  max-width: 850px;
+  color: white;
+}
+
+.eyebrow,
+.sectionLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(54px, 8vw, 112px);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 1;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+.subtitle {
+  max-width: 620px;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 28px 0;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.primary {
+  background: white;
+  color: var(--navy);
+}
+
+.secondary {
+  border: 1px solid currentColor;
+}
+
+.intro,
+.apartments,
+.amenities,
+.faq,
+.contact {
+  padding: 110px 8%;
+}
+
+.intro {
+  max-width: 1000px;
+}
+
+.intro p:last-child,
+.experience p,
+.placeText p,
+.contact p {
+  font-size: 19px;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.sectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: white;
+}
+
+.cardImage {
+  height: 380px;
+  background: linear-gradient(135deg, var(--sand), var(--blue));
+}
+
+.cardBody {
+  padding: 36px;
+}
+
+.cardBody p {
+  line-height: 1.7;
+}
+
+.cardBody ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+  margin: 24px 0;
+  color: #607177;
+}
+
+.cardBody a,
+.textLink {
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 14px;
+}
+
+.experience {
+  padding: 120px 8%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  background: var(--navy);
+  color: white;
+}
+
+.place {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
+}
+
+.placeImage {
+  background:
+    linear-gradient(rgba(111, 158, 181, 0.2), rgba(111, 158, 181, 0.2)),
+    url('/images/san-nicola.jpg') center/cover;
+}
+
+.placeText {
+  padding: 100px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.amenityGrid {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.amenityGrid span {
+  background: white;
+  padding: 28px;
+  font-size: 18px;
+}
+
+.faq details {
+  border-top: 1px solid #d8cbb8;
+  padding: 24px 0;
+}
+
+.faq details:last-child {
+  border-bottom: 1px solid #d8cbb8;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-size: 22px;
+  font-family: Georgia, serif;
+}
+
+.faq p {
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.contact {
+  text-align: center;
+  background: var(--sand);
+}
+
+.contact .heroActions {
+  justify-content: center;
+  margin-top: 28px;
+}
+
+footer {
+  padding: 36px 8%;
+  background: var(--navy);
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .nav {
+    padding: 20px;
+  }
+
+  .nav nav {
+    display: none;
+  }
+
+  .cards,
+  .experience,
+  .place,
+  .amenityGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro,
+  .apartments,
+  .amenities,
+  .faq,
+  .contact {
+    padding: 80px 24px;
+  }
+
+  .hero {
+    padding: 120px 24px;
+  }
+
+  .placeImage {
+    min-height: 420px;
+  }
 }
