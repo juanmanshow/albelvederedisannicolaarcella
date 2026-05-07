@@ -1,27 +1,59 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import './globals.css';
 
 const apartments = [
   {
-    name: 'Appartamento Belvedere I',
+    name: 'Appartamento Superior con balcone',
     text: 'Luminoso, mediterraneo, ideale per vivere San Nicola Arcella tra mare, relax e comfort.',
-    features: ['Camera da letto', 'Divano letto', 'Cucina attrezzata', 'Bagno privato', 'Posto auto'],
+    features: ['Camera da letto', 'Divano letto', 'Cucina attrezzata', 'Bagno privato', 'Posto auto','Aria Condizionata','Balcone'],
   },
   {
-    name: 'Appartamento Belvedere II',
+    name: 'Appartamento Superior',
     text: 'Adiacente e appena rinnovato, perfetto per famiglie, coppie o soggiorni con amici.',
-    features: ['Stesso piano', 'Aria condizionata', 'Cucina', 'Bagno privato', 'Comfort moderni'],
+    features: ['Camera da letto', 'Divano letto', 'Cucina attrezzata', 'Bagno privato', 'Posto auto','Aria Condizionata'],
   },
 ];
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   return (
     <main>
-      <header className="nav">
-        <div className="brand">Al Belvedere</div>
+      <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
+        
+      <div className="brand">
+        <img
+          src={scrolled ? '/images/logo-dark.png' : '/images/logo-white.png'}
+          alt="Al Belvedere"
+          className="brandLogo"
+        />
+
+        <div className="brandText">
+          <span className="brandTitle">Al Belvedere di San Nicola Arcella</span>
+        </div>
+      </div>
+
+
         <nav>
+          <a href="#contact">Prenota</a>
           <a href="#apartments">Appartamenti</a>
-          <a href="#place">San Nicola</a>
+          <a href="#place">San Nicola Arcella</a>
+          <a href="#contact">Recensioni</a>
           <a href="#contact">Contatti</a>
+          <a href="#contact">FAQ</a>
         </nav>
       </header>
 
@@ -31,8 +63,8 @@ export default function Home() {
           <p className="eyebrow">San Nicola Arcella · Riviera dei Cedri</p>
           <h1>Al Belvedere di San Nicola Arcella</h1>
           <p className="subtitle">
-            Due appartamenti mediterranei, luminosi e accoglienti, per vivere la Calabria tra mare,
-            panorama e quiete.
+            Appartamenti mediterranei, luminosi e accoglienti, per vivere la Calabria tra mare,
+             quiete e panorami mozzafiato.
           </p>
           <div className="heroActions">
             <a href="#apartments" className="btn primary">Scopri gli appartamenti</a>
@@ -46,7 +78,7 @@ export default function Home() {
         <h2>Una casa al mare pensata per rallentare.</h2>
         <p>
           Al Belvedere nasce per chi cerca un soggiorno semplice ma curato: luce naturale, dettagli
-          mediterranei, posizione comoda e il fascino autentico di San Nicola Arcella.
+          mediterranei, posizione centrale per immergersi nel fascino autentico di San Nicola Arcella.
         </p>
       </section>
 
@@ -56,21 +88,48 @@ export default function Home() {
           <h2>I nostri appartamenti</h2>
         </div>
 
-        <div className="cards">
-          {apartments.map((apt) => (
-            <article className="card" key={apt.name}>
-              <div className="cardImage" />
-              <div className="cardBody">
-                <h3>{apt.name}</h3>
-                <p>{apt.text}</p>
-                <ul>
-                  {apt.features.map((f) => <li key={f}>{f}</li>)}
-                </ul>
-                <a href="#contact">Richiedi disponibilità</a>
-              </div>
-            </article>
+        <div className="apartmentGrid">
+  {apartments.map((apt, index) => (
+    <article className="apartmentCard" key={apt.name}>
+      <div
+        className="apartmentImage"
+        style={{
+          backgroundImage: `url('/images/apartment-${index + 1}.jpg')`,        }}
+      />
+
+      <div className="apartmentContent">
+        <p className="apartmentEyebrow">
+          Boutique Apartment {index + 1}
+        </p>
+
+        <h3>{apt.name}</h3>
+
+        <p className="apartmentText">
+          {apt.text}
+        </p>
+
+        <div className="featureList">
+          {apt.features.map((f) => (
+            <span key={f}>{f}</span>
           ))}
         </div>
+
+        <div className="apartmentActions">
+          <a
+            href={`/appartamento-belvedere-${index + 1}`}
+            className="discoverLink"
+          >
+            Scopri l’appartamento
+          </a>
+
+          <a href="#contact" className="miniButton">
+            Disponibilità
+          </a>
+        </div>
+      </div>
+    </article>
+  ))}
+</div>
       </section>
 
       <section className="experience">
@@ -94,7 +153,9 @@ export default function Home() {
             aperti sul Tirreno. Una base ideale per scoprire Arcomagno, Praia a Mare, Scalea e la
             Riviera dei Cedri.
           </p>
-          <a href="#contact" className="textLink">Organizza il tuo soggiorno</a>
+          <a href="#contact" className="placeButton">
+            Organizza il tuo soggiorno
+          </a>
         </div>
       </section>
 
@@ -108,6 +169,21 @@ export default function Home() {
           <span>Bagno privato</span>
           <span>Divano letto</span>
           <span>Posizione strategica</span>
+        </div>
+
+        <div className="amenityStrip">
+          <img src="/images/kitchen1.jpg" alt="" />
+          <img src="/images/bathroom1.jpg" alt="" />
+          <img src="/images/detail1.jpg" alt="" />
+          <img src="/images/balcony1.jpg" alt="" />
+          <img src="/images/bedroom1.jpg" alt="" />
+          <img src="/images/sofa1.jpg" alt="" />
+          <img src="/images/kitchen2.jpg" alt="" />
+          <img src="/images/bathroom2.jpg" alt="" />
+          <img src="/images/detail2.jpg" alt="" />
+          <img src="/images/external_view.jpg" alt="" />
+          <img src="/images/bedroom2.jpg" alt="" />
+          <img src="/images/sofa2.jpg" alt="" />
         </div>
       </section>
 
@@ -133,14 +209,108 @@ export default function Home() {
         <h2>Richiedi disponibilità</h2>
         <p>Scrivici per date, numero di ospiti e appartamento preferito.</p>
         <div className="heroActions">
-          <a className="btn primary" href="https://wa.me/39TUONUMERO">WhatsApp</a>
-          <a className="btn secondary" href="mailto:tuaemail@example.com">Email</a>
+          <a
+            className="btn phoneBtn"
+            href="tel:+393485721282"
+          >
+            +39 348 572 1282
+          </a>
+
+          <a
+            className="btn primary whatsappBtn"
+            href="https://wa.me/393485721282"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/images/whatsapp.png"
+              alt="WhatsApp"
+              className="btnSvgIcon"
+            />
+
+            WhatsApp
+          </a>
+
+          <a
+            className="btn phoneBtn"
+            href="mailto:giovanniesposito99.ge@gmail.com"
+          >
+            E-mail
+          </a>
         </div>
       </section>
 
-      <footer>
-        <p>Al Belvedere di San Nicola Arcella · Boutique apartments in Calabria</p>
-      </footer>
+      <footer className="footer">
+
+  <div className="footerTop">
+
+    <div className="footerBrand">
+
+      <img
+        src="/images/icon.png"
+        alt="Al Belvedere di San Nicola Arcella"
+        className="footerLogo"
+      />
+
+      <h3 className="footerBrandTitle">
+        Appartamenti “Al Belvedere di San Nicola Arcella”
+      </h3>
+
+      <p className="footerAddress">
+        Corso Umberto I, 12
+        <br />
+        San Nicola Arcella 87020
+      </p>
+
+      <span className="footerTagline">
+        Boutique apartments in Calabria
+      </span>
+
+    </div>
+
+    <div className="footerColumn">
+      <h4>Contatti</h4>
+
+      <a href="tel:+393485721282">
+        +39 348 572 1282
+      </a>
+
+      <a href="mailto:giovanniesposito99.ge@gmail.com">
+        giovanniesposito99.ge@gmail.com
+      </a>
+
+      <p>
+        San Nicola Arcella (CS), Calabria
+      </p>
+    </div>
+
+    <div className="footerColumn">
+      <h4>Informazioni</h4>
+
+      <p>CIN: in aggiornamento</p>
+
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+  </div>
+
+  <div className="footerBottom">
+    © 2026 Al Belvedere di San Nicola Arcella · All rights reserved
+  </div>
+
+</footer>
+      
+      
+      <button
+        className={`backToTop ${scrolled ? 'visible' : ''}`}
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
+
     </main>
   );
 }

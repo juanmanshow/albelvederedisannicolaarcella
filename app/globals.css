@@ -3,16 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --blue: #6f9eb5;
-  --navy: #193746;
+  --blue: #6fa9c2;
+  --blue-dark: #417d98;
+  --navy: #173746;
   --sand: #e8dcc8;
-  --cream: #faf7f0;
+  --cream: #f8f5f1;
   --stone: #b9aa94;
   --text: #223238;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -31,18 +36,61 @@ a {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 50;
   padding: 24px 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
+  transition:
+    background 1s ease,
+    color 1s ease,
+    border-color 1s ease,
+    backdrop-filter 1s ease;
+}
+
+.nav.scrolled {
+  background: rgba(248, 245, 241, 0.9);
+  color: var(--navy);
+  border-bottom: 1px solid rgba(23, 55, 70, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.nav.scrolled .brand {
+  color: var(--blue-dark);
 }
 
 .brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.brandLogo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  transition: all 0.35s ease;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brandTitle {
   font-family: Georgia, serif;
-  font-size: 24px;
-  letter-spacing: 0.04em;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+}
+
+.brandSubtitle {
+  margin-top: 5px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.72;
 }
 
 .nav nav {
@@ -51,6 +99,30 @@ a {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+.nav nav a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.35s ease;
+}
+
+.nav nav a:hover::after {
+  width: 100%;
+}
+
+.nav:not(.scrolled) nav a::after {
+  background: white;
 }
 
 .hero {
@@ -119,6 +191,7 @@ h3 {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  transition: all 0.3s ease;
 }
 
 .primary {
@@ -126,8 +199,17 @@ h3 {
   color: var(--navy);
 }
 
+.primary:hover {
+  background: var(--blue);
+  color: white;
+}
+
 .secondary {
   border: 1px solid currentColor;
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .intro,
@@ -146,9 +228,11 @@ h3 {
 .experience p,
 .placeText p,
 .contact p {
-  font-size: 19px;
-  line-height: 1.7;
+  font-size: 20px;
+  line-height: 1.9;
   max-width: 760px;
+  margin: 0 auto;
+  opacity: 0.82;
 }
 
 .sectionHead {
@@ -158,40 +242,6 @@ h3 {
   margin-bottom: 48px;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-}
-
-.card {
-  background: white;
-}
-
-.cardImage {
-  height: 380px;
-  background: linear-gradient(135deg, var(--sand), var(--blue));
-}
-
-.cardBody {
-  padding: 36px;
-}
-
-.cardBody p {
-  line-height: 1.7;
-}
-
-.cardBody ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 0;
-  list-style: none;
-  margin: 24px 0;
-  color: #607177;
-}
-
-.cardBody a,
 .textLink {
   color: var(--blue);
   text-transform: uppercase;
@@ -235,9 +285,10 @@ h3 {
 }
 
 .amenityGrid span {
-  background: white;
+  background: #f8f5f1;
   padding: 28px;
   font-size: 18px;
+  border: 0px solid rgba(23, 55, 70, 0.06);
 }
 
 .faq details {
@@ -257,12 +308,14 @@ h3 {
 
 .faq p {
   line-height: 1.7;
-  max-width: 680px;
+  max-width: 100%;
 }
 
 .contact {
   text-align: center;
   background: var(--sand);
+  padding-top: 105px;
+  padding-bottom: 110px;
 }
 
 .contact .heroActions {
@@ -277,6 +330,155 @@ footer {
   text-align: center;
 }
 
+.backToTop {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--navy);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(23, 55, 70, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.backToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.backToTop:hover {
+  background: white;
+  color: var(--navy);
+  transform: translateY(-4px);
+}
+
+.backToTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+.apartmentGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.apartmentCard {
+  background: white;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(20, 45, 55, 0.06);
+  box-shadow: 0 6px 18px rgba(20, 45, 55, 0.04);
+}
+
+.apartmentCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(20, 45, 55, 0.07);
+}
+
+.apartmentImage {
+  position: relative;
+  height: 520px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apartmentImage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(15, 35, 45, 0.08),
+    rgba(15, 35, 45, 0.18)
+  );
+  opacity: 1;
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apartmentCard:hover .apartmentImage {
+  transform: scale(1.035);
+}
+
+.apartmentCard:hover .apartmentImage::after {
+  opacity: 0.03;
+}
+
+.apartmentContent {
+  padding: 42px;
+}
+
+.apartmentEyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--blue-dark);
+  margin-bottom: 14px;
+}
+
+.apartmentText {
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 22px 0 28px;
+  color: #51646b;
+}
+
+.featureList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.featureList span {
+  padding: 10px 16px;
+  background: #f4efe7;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.apartmentActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discoverLink {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 14px;
+  color: var(--blue-dark);
+}
+
+.miniButton {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+}
+
+.miniButton:hover {
+  background: var(--blue-dark);
+}
+
 @media (max-width: 800px) {
   .nav {
     padding: 20px;
@@ -286,10 +488,15 @@ footer {
     display: none;
   }
 
-  .cards,
+  .brandLogo {
+    width: 52px;
+    height: 52px;
+  }
+
   .experience,
   .place,
-  .amenityGrid {
+  .amenityGrid,
+  .apartmentGrid {
     grid-template-columns: 1fr;
   }
 
@@ -307,5 +514,310 @@ footer {
 
   .placeImage {
     min-height: 420px;
+  }
+
+  h1 {
+    font-size: 56px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  .subtitle,
+  .intro p:last-child,
+  .experience p,
+  .placeText p,
+  .contact p,
+  .apartmentText {
+    font-size: 17px;
+  }
+
+  .apartmentImage {
+    height: 360px;
+  }
+
+  .apartmentContent {
+    padding: 28px;
+  }
+
+  .apartmentActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+.whatsappBtn:hover {
+  background: #25d366;
+  color: white;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnIcon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.whatsappBtn:hover {
+  background: #25d366;
+  color: white;
+}
+
+.phoneBtn {
+  background: white;
+  color: var(--navy);
+  border: 1px solid rgba(23, 55, 70, 0.08);
+}
+
+.phoneBtn:hover {
+  background: var(--navy);
+  color: white;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnSvgIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.whatsappBtn:hover {
+  background: #25d366;
+  color: white;
+}
+
+.phoneWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phoneBtn {
+  background: white;
+  color: var(--navy);
+  border: 1px solid rgba(23, 55, 70, 0.08);
+}
+
+.phoneBtn:hover {
+  background: var(--navy);
+  color: white;
+}
+
+.phoneNumber {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  opacity: 0.75;
+}
+.contact h2,
+.contact .sectionLabel,
+.contact p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact .heroActions,
+.contactButtons {
+  justify-content: center;
+}
+.contact h2 {
+  margin-bottom: 18px;
+}
+.contact .heroActions {
+  margin-top: 34px;
+}
+.contact h2 {
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.95;
+}
+.intro h2 {
+  margin-bottom: 34px;
+}
+.intro {
+  padding-bottom: 24px;
+}
+.placeText h2 {
+  margin-bottom: 34px;
+}
+
+.placeText p {
+  margin-bottom: 24px;
+}
+.placeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 26px;
+  background: var(--navy);
+  color: white;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+  border: 1px solid rgba(23, 55, 70, 0.08);
+  transition: all 0.35s ease;
+}
+
+.placeButton:hover {
+  background: white;
+  color: var(--navy);
+}
+.amenityStrip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 54px;
+}
+
+.amenityStrip img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.amenityStrip img:hover {
+  transform: scale(1.03);
+}
+@media (max-width: 800px) {
+  .amenityStrip {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 6px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .amenityStrip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .amenityStrip img {
+    min-width: 220px;
+    height: 220px;
+  }
+}
+.amenities {
+  background: #ffffff;
+  border-top: 1px solid rgba(23, 55, 70, 0.04);
+  border-bottom: 1px solid rgba(23, 55, 70, 0.04);
+}
+
+.faq h2 {
+  margin-bottom: 42px;
+}
+
+.faq details[open] summary {
+  margin-bottom: 18px;
+}
+
+.footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 90px 8% 36px;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 80px;
+  padding-bottom: 54px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footerLogo {
+  width: 88px;
+  margin-bottom: 26px;
+}
+
+.footerBrandTitle {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 22px;
+  max-width: 440px;
+}
+
+.footerAddress {
+  font-size: 17px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 24px;
+}
+
+.footerTagline {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.footerColumn h4 {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footerColumn a,
+.footerColumn p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footerColumn a {
+  transition: color 0.3s ease;
+}
+
+.footerColumn a:hover {
+  color: var(--blue);
+}
+
+.footerBottom {
+  padding-top: 28px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 800px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 54px;
+  }
+
+  .footer {
+    padding: 70px 24px 28px;
+  }
+
+  .footerBrandTitle {
+    font-size: 28px;
   }
 }
