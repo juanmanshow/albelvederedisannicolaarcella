@@ -47,11 +47,6 @@ export const metadata: Metadata = {
       'Boutique apartments in Calabria between sea, Arcomagno and Riviera dei Cedri.',
     images: ['/images/hero.jpg'],
   },
-  icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/icon.png',
-  },
 };
 
 export default function RootLayout({
