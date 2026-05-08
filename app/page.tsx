@@ -328,6 +328,13 @@ export default function Home() {
           <summary>Come posso prenotare?</summary>
           <p>Puoi richiedere disponibilità via WhatsApp o email. In seguito integreremo il calendario con Booking e Airbnb.</p>
         </details>
+        <details>
+          <summary>Gli animali sono ammessi?</summary>
+          <p>
+            Per preservare comfort, pulizia e tranquillità degli ambienti, al momento gli animali non sono ammessi negli appartamenti.  
+            Grazie per la comprensione.
+          </p>
+        </details>
       </section>
 
       <section id="contact" className="contact">
@@ -420,7 +427,14 @@ export default function Home() {
             <a href="mailto:giovanniesposito99.ge@gmail.com">
               giovanniesposito99.ge@gmail.com
             </a>
-            
+            <a
+              href="https://maps.app.goo.gl/zpQdoTt6tzh8jyaK7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="placeButton"
+            >
+              Apri su Google Maps
+            </a>
 
           </div>
 
