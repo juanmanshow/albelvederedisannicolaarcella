@@ -87,14 +87,24 @@ export default function Home() {
       </div>
 
 
-        <nav>
-          <a href="#contact">Prenota</a>
-          <a href="#apartments">Appartamenti</a>
-          <a href="#place">San Nicola Arcella</a>
-          <a href="#contact">Recensioni</a>
-          <a href="#contact">Contatti</a>
-          <a href="#contact">FAQ</a>
-        </nav>
+      <nav>
+        <Link href="/#contact">Prenota</Link>
+        <div className="navDropdown">
+          <Link href="/#apartments">Appartamenti</Link>
+          <div className="navDropdownMenu">
+            <Link href="/appartamento-superior-con-balcone">
+              Superior con balcone
+            </Link>
+            <Link href="/appartamento-superior">
+              Superior
+            </Link>
+          </div>
+        </div>
+        <Link href="/#place">San Nicola Arcella</Link>
+        <Link href="/#contact">Recensioni</Link>
+        <Link href="/#contact">Contatti</Link>
+        <Link href="/#faq">FAQ</Link>
+      </nav>
         <button
           className="menuToggle"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -108,7 +118,7 @@ export default function Home() {
           <a href="#apartments" onClick={() => setMenuOpen(false)}>Appartamenti</a>
           <a href="#place" onClick={() => setMenuOpen(false)}>San Nicola Arcella</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contatti</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>FAQ</a>
+          <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
         </div>
 
       <section className="hero">
@@ -294,7 +304,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="faq">
+      <section id="faq" className="faq">
         <p className="sectionLabel">FAQ</p>
         <h2>Informazioni utili</h2>
         <details>
@@ -383,7 +393,87 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <section className="reviews">
+        <p className="sectionLabel">Guest reviews</p>
 
+        <h2>Cosa raccontano gli ospiti</h2>
+
+        <div className="reviewsGrid">
+
+          <article className="reviewCard">
+            <div className="reviewStars">★★★★★</div>
+
+            <p>
+              “Sono rimasto profondamente colpito dalla pulizia impeccabile e dall'atmosfera piacevole di questa casa. 
+              <br />È stato recentemente ristrutturato, è spazioso, luminoso e molto confortevole, con mobili ed elettrodomestici nuovi che rendono il soggiorno estremamente piacevole.
+              <br />Mi sono sentito accolto e supportato in ogni momento che ho trascorso qui.
+              È un luogo dove puoi davvero rilassarti e goderti la pace e la bellezza.”
+            </p>
+
+            <span>— Lilia, Germania</span>
+          </article>
+
+          <article className="reviewCard">
+            <div className="reviewStars">★★★★★</div>
+
+            <p>
+              “Posto stupendo,tutto perfetto, pulizia impeccabile , vista mozzafiato con finestra sul mare, propietario aperto al dialogo... Tutto davvero eccellente....”
+            </p>
+
+            <span>— Irma, Italia</span>
+          </article>
+          <article className="reviewCard">
+            <div className="reviewStars">★★★★★</div>
+
+            <p>
+              “Ottima posizione, appartamento curato e pulitissimo e dotato di ogni confort. Host gentilissimo e sempre disponibile. Vista mozzafiato, a due passi dal centro. Torneremo sicuramente!!”
+            </p>
+
+            <span>— Patrizia, Italia</span>
+          </article>
+          <article className="reviewCard">
+            <div className="reviewStars">★★★★★</div>
+
+            <p>
+              “Ottimo soggiorno! L'appartamento era pulitissimo, confortevole e ben attrezzato. Anche la posizione era ottima. Lo consiglio vivamente e ci tornerei volentieri!!!”
+            </p>
+
+            <span>— Natalia, Polonia</span>
+          </article>
+          <article className="reviewCard">
+            <div className="reviewStars">★★★★</div>
+
+            <p>
+              “Appartamento pulito e carino.Si potrebbero aggiungere alcuni articoli per la casa, ad esempio grandi tazze da caffè.apribottiglie..pentola grande per la pasta..piatto per la colazione..forse un tavolo pulito e 2 Sedie per il balcone..altrimenti bella posizione..lo consigliamo”
+            </p>
+
+            <span>— Birgit, Germania</span>
+          </article>
+
+        </div>
+
+        <div className="reviewsActions">
+
+          <a
+            href="https://maps.app.goo.gl/zpQdoTt6tzh8jyaK7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="placeButton"
+          >
+            Leggi su Google
+          </a>
+
+          <a
+            href="https://www.booking.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn secondary"
+          >
+            Booking.com
+          </a>
+
+        </div>
+      </section>
       <footer className="footer">
 
         <div className="footerTop">
@@ -468,7 +558,7 @@ export default function Home() {
 
       </footer>
       
-      <div className="mobileStickyCta">
+      <div className={`mobileStickyCta ${scrolled ? 'compact' : ''}`}>
         <a href="tel:+393485721282">
           Chiama
         </a>

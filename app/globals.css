@@ -1004,46 +1004,54 @@ footer {
 }
 
 .mobileStickyCta {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
   display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: rgba(248, 245, 241, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(23, 55, 70, 0.12);
+  z-index: 120;
+  transition: all 0.45s ease;
+}
+
+.mobileStickyCta a {
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: white;
+  transition: all 0.35s ease;
+}
+
+.mobileStickyCta a:last-child {
+  background: #25d366;
+}
+
+.mobileStickyCta.compact {
+  left: 18px;
+  bottom: 18px;
+  transform: none;
+  padding: 6px;
+  gap: 6px;
+  opacity: 0.92;
+}
+
+.mobileStickyCta.compact a {
+  padding: 10px 14px;
+  font-size: 11px;
 }
 
 @media (max-width: 800px) {
   .mobileStickyCta {
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    bottom: 18px;
-    z-index: 90;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-    background: rgba(248, 245, 241, 0.92);
-    border: 1px solid rgba(23, 55, 70, 0.08);
-    border-radius: 999px;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 14px 38px rgba(23, 55, 70, 0.16);
-  }
-
-  .mobileStickyCta a {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 46px;
-    border-radius: 999px;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .mobileStickyCta a:first-child {
-    background: white;
-    color: var(--navy);
-  }
-
-  .mobileStickyCta a:last-child {
-    background: var(--navy);
-    color: white;
   }
 }
 
@@ -1222,5 +1230,154 @@ footer {
   .galleryThumb {
     min-width: 160px;
     height: 130px;
+  }
+}
+
+.navDropdown {
+  position: relative;
+}
+
+.navDropdownMenu {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  min-width: 230px;
+  padding: 10px;
+  background: rgba(248, 245, 241, 0.96);
+  border: 1px solid rgba(23, 55, 70, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(23, 55, 70, 0.14);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.28s ease;
+}
+
+.navDropdown:hover .navDropdownMenu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.navDropdownMenu a {
+  display: block;
+  padding: 13px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.navDropdownMenu a:hover {
+  background: rgba(111, 169, 194, 0.12);
+}
+
+.reviews {
+  position: relative;
+  background: #ffffff;
+  padding: 110px 8%;
+  overflow: hidden;
+}
+
+.reviews h2 {
+  margin-bottom: 52px;
+}
+
+.reviewsGrid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 8% 22px;
+  margin: 0 -8%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.reviewsGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.reviewCard {
+  flex: 0 0 420px;
+  scroll-snap-align: start;
+  padding: 38px;
+  background: #f8f5f1;
+  border-radius: 26px;
+  border: 1px solid rgba(23, 55, 70, 0.05);
+}
+
+.reviewStars {
+  margin-bottom: 18px;
+  color: #d6a84f;
+  letter-spacing: 0.18em;
+  font-size: 14px;
+}
+
+.reviewCard p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  color: #33464d;
+}
+
+.reviewCard span {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.reviewsActions {
+  margin-top: 42px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.reviews::before,
+.reviews::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reviews::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 35%, transparent);
+}
+
+.reviews::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 35%, transparent);
+}
+
+@media (max-width: 800px) {
+  .reviews {
+    padding: 80px 24px;
+  }
+
+  .reviewsGrid {
+    margin: 0 -24px;
+    padding: 0 24px 18px;
+    gap: 16px;
+  }
+
+  .reviewCard {
+    flex: 0 0 84%;
+    padding: 30px;
+  }
+
+  .reviews::before,
+  .reviews::after {
+    width: 34px;
   }
 }
