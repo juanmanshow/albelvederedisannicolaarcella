@@ -496,7 +496,9 @@ footer {
   .nav {
     padding: 18px 20px;
   }
-
+  .backToTop {
+    bottom: 92px;
+  }
   .nav nav {
     display: none;
   }
@@ -692,6 +694,7 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   padding: 16px 26px;
   background: var(--navy);
   color: white;
@@ -748,8 +751,11 @@ footer {
   background: #ffffff;
   border-top: 1px solid rgba(23, 55, 70, 0.04);
   border-bottom: 1px solid rgba(23, 55, 70, 0.04);
+  padding-bottom: 50px;
 }
-
+.faq {
+  padding-top: 50px;
+}
 .faq h2 {
   margin-bottom: 42px;
 }
@@ -981,7 +987,7 @@ footer {
 }
 
 .galleryCta {
-  margin-top: 28px;
+  margin-top: 50px;
   text-align: center;
 }
 
@@ -995,4 +1001,226 @@ footer {
   line-height: 1.8;
   opacity: 0.78;
   margin-bottom: 34px;
+}
+
+.mobileStickyCta {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .mobileStickyCta {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 18px;
+    z-index: 90;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(248, 245, 241, 0.92);
+    border: 1px solid rgba(23, 55, 70, 0.08);
+    border-radius: 999px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 14px 38px rgba(23, 55, 70, 0.16);
+  }
+
+  .mobileStickyCta a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    border-radius: 999px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mobileStickyCta a:first-child {
+    background: white;
+    color: var(--navy);
+  }
+
+  .mobileStickyCta a:last-child {
+    background: var(--navy);
+    color: white;
+  }
+}
+
+.directBookingNote {
+  margin-top: 22px;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  opacity: 0.82;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .directBookingNote {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+.galleryDirectNote {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  opacity: 0.72;
+}
+
+
+.apartmentPageHero {
+  padding: 180px 8% 90px;
+  background: var(--cream);
+}
+
+.apartmentPageHero h1 {
+  max-width: 1200px;
+  line-height: 0.9;
+}
+
+.apartmentPageHero {
+  max-width: 1700px;
+}
+
+.apartmentPageHero p:not(.sectionLabel) {
+  max-width: 720px;
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 30px 0;
+  opacity: 0.82;
+}
+
+
+.apartmentPageContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 110px 8%;
+  background: white;
+}
+
+.apartmentPageText p {
+  font-size: 19px;
+  line-height: 1.8;
+  opacity: 0.82;
+}
+
+.apartmentPageText ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 0;
+  margin: 34px 0;
+  list-style: none;
+}
+
+.apartmentPageText li {
+  background: var(--cream);
+  padding: 18px;
+}
+
+@media (max-width: 800px) {
+  .apartmentPageHero {
+    padding: 140px 24px 70px;
+  }
+
+  .apartmentPageHero h1 {
+    font-size: 42px;
+  }
+
+  .apartmentPageGallery {
+    grid-template-columns: 1fr;
+    padding: 0 24px 70px;
+  }
+
+  .apartmentPageGallery img {
+    height: 320px;
+  }
+
+  .apartmentPageContent {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 80px 24px;
+  }
+
+  .apartmentPageText ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+.apartmentEditorialGallery {
+  padding: 0 8% 90px;
+  background: var(--cream);
+}
+
+.galleryFeatured {
+  width: 100%;
+  height: 620px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+}
+
+.galleryFeatured img,
+.galleryThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galleryThumbs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.galleryThumb {
+  height: 180px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+}
+
+.galleryFeatured img,
+.galleryThumb img {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.galleryFeatured:hover img,
+.galleryThumb:hover img {
+  transform: scale(1.035);
+}
+
+@media (max-width: 800px) {
+  .apartmentEditorialGallery {
+    padding: 0 24px 70px;
+  }
+
+  .galleryFeatured {
+    height: 420px;
+  }
+
+  .galleryThumbs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .galleryThumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .galleryThumb {
+    min-width: 160px;
+    height: 130px;
+  }
 }

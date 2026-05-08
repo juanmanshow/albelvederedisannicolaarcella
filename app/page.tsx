@@ -12,6 +12,7 @@ import {
   Sofa,
   Sheet,
   Smartphone,
+  MapPinned,
 } from 'lucide-react';
 
 const apartments = [
@@ -123,6 +124,9 @@ export default function Home() {
             <a href="#apartments" className="btn primary">Scopri gli appartamenti</a>
             <a href="#contact" className="btn secondary">Richiedi disponibilità</a>
           </div>
+          <p className="directBookingNote">
+            Prenota direttamente per ricevere assistenza e condizioni economiche dedicate.
+          </p>
         </div>
       </section>
 
@@ -169,10 +173,14 @@ export default function Home() {
 
         <div className="apartmentActions">
           <a
-            href={`/appartamento-belvedere-${index + 1}`}
+            href={
+              index === 0
+                ? '/appartamento-superior-con-balcone'
+                : '/appartamento-superior'
+            }
             className="discoverLink"
           >
-            Scopri l’appartamento
+            Scopri l'appartamento
           </a>
 
           <a href="#contact" className="miniButton">
@@ -281,6 +289,9 @@ export default function Home() {
             Scopri gli appartamenti
           </a>
         </div>
+        <p className="galleryDirectNote">
+          Prenota direttamente per ricevere assistenza e condizioni economiche dedicate.
+        </p>
       </section>
 
       <section className="faq">
@@ -433,6 +444,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="placeButton"
             >
+              <MapPinned size={18} />
               Apri su Google Maps
             </a>
 
@@ -456,7 +468,20 @@ export default function Home() {
 
       </footer>
       
-      
+      <div className="mobileStickyCta">
+        <a href="tel:+393485721282">
+          Chiama
+        </a>
+
+        <a
+          href="https://wa.me/393485721282"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
+      </div>
+
       <button
         className={`backToTop ${scrolled ? 'visible' : ''}`}
         onClick={scrollToTop}
