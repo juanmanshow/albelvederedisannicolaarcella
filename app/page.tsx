@@ -404,7 +404,7 @@ export default function Home() {
             <div className="reviewStars">★★★★★</div>
 
             <p>
-              “Sono rimasto profondamente colpito dalla pulizia impeccabile e dall'atmosfera piacevole di questa casa. 
+              “Sono rimasto profondamente colpito dalla pulizia impeccabile e dal&apos;atmosfera piacevole di questa casa. 
               <br />È stato recentemente ristrutturato, è spazioso, luminoso e molto confortevole, con mobili ed elettrodomestici nuovi che rendono il soggiorno estremamente piacevole.
               <br />Mi sono sentito accolto e supportato in ogni momento che ho trascorso qui.
               È un luogo dove puoi davvero rilassarti e goderti la pace e la bellezza.”
@@ -435,7 +435,7 @@ export default function Home() {
             <div className="reviewStars">★★★★★</div>
 
             <p>
-              “Ottimo soggiorno! L'appartamento era pulitissimo, confortevole e ben attrezzato. Anche la posizione era ottima. Lo consiglio vivamente e ci tornerei volentieri!!!”
+              “Ottimo soggiorno! L&apos;appartamento era pulitissimo, confortevole e ben attrezzato. Anche la posizione era ottima. Lo consiglio vivamente e ci tornerei volentieri!!!”
             </p>
 
             <span>— Natalia, Polonia</span>
