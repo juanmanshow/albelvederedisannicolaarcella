@@ -345,8 +345,8 @@ footer {
 
 .backToTop {
   position: fixed;
-  right: 28px;
-  bottom: 28px;
+  right: 18px;
+  bottom: 18px;
   width: 54px;
   height: 54px;
   border-radius: 999px;
@@ -497,7 +497,8 @@ footer {
     padding: 18px 20px;
   }
   .backToTop {
-    bottom: 92px;
+    right: 18px;
+    bottom: 18px;
   }
   .nav nav {
     display: none;
@@ -1005,9 +1006,9 @@ footer {
 
 .mobileStickyCta {
   position: fixed;
-  left: 50%;
+  left: 18px;
   bottom: 18px;
-  transform: translateX(-50%);
+  transform: translateY(20px);
   display: none;
   align-items: center;
   gap: 12px;
@@ -1017,7 +1018,7 @@ footer {
   border-radius: 999px;
   box-shadow: 0 10px 30px rgba(23, 55, 70, 0.12);
   z-index: 120;
-  transition: all 0.45s ease;
+  transition: all 0.60s ease;
 }
 
 .mobileStickyCta a {
@@ -1035,23 +1036,18 @@ footer {
   background: #25d366;
 }
 
-.mobileStickyCta.compact {
-  left: 18px;
-  bottom: 18px;
-  transform: none;
-  padding: 6px;
-  gap: 6px;
-  opacity: 0.92;
-}
-
-.mobileStickyCta.compact a {
-  padding: 10px 14px;
-  font-size: 11px;
-}
-
 @media (max-width: 800px) {
   .mobileStickyCta {
     display: flex;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+
+  .mobileStickyCta.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
 
@@ -1278,7 +1274,7 @@ footer {
 .reviews {
   position: relative;
   background: #ffffff;
-  padding: 110px 8%;
+  padding: 110px 8% 50px;
   overflow: hidden;
 }
 
@@ -1335,6 +1331,8 @@ footer {
 .reviewsActions {
   margin-top: 42px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -1380,4 +1378,24 @@ footer {
   .reviews::after {
     width: 34px;
   }
+}
+
+#faq {
+  scroll-margin-top: 140px;
+}
+
+#reviews {
+  scroll-margin-top: 140px;
+}
+
+#contact {
+  scroll-margin-top: 140px;
+}
+
+#apartments {
+  scroll-margin-top: 140px;
+}
+
+#place {
+  scroll-margin-top: 140px;
 }

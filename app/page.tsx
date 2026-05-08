@@ -101,7 +101,7 @@ export default function Home() {
           </div>
         </div>
         <Link href="/#place">San Nicola Arcella</Link>
-        <Link href="/#contact">Recensioni</Link>
+        <Link href="/#reviews">Recensioni</Link>
         <Link href="/#contact">Contatti</Link>
         <Link href="/#faq">FAQ</Link>
       </nav>
@@ -393,7 +393,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section className="reviews">
+      <section id="reviews" className="reviews">
         <p className="sectionLabel">Guest reviews</p>
 
         <h2>Cosa raccontano gli ospiti</h2>
@@ -406,8 +406,7 @@ export default function Home() {
             <p>
               “Sono rimasto profondamente colpito dalla pulizia impeccabile e dal&apos;atmosfera piacevole di questa casa. 
               <br />È stato recentemente ristrutturato, è spazioso, luminoso e molto confortevole, con mobili ed elettrodomestici nuovi che rendono il soggiorno estremamente piacevole.
-              <br />Mi sono sentito accolto e supportato in ogni momento che ho trascorso qui.
-              È un luogo dove puoi davvero rilassarti e goderti la pace e la bellezza.”
+              <br />Mi sono sentito accolto e supportato ...”
             </p>
 
             <span>— Lilia, Germania</span>
@@ -558,7 +557,7 @@ export default function Home() {
 
       </footer>
       
-      <div className={`mobileStickyCta ${scrolled ? 'compact' : ''}`}>
+      <div className={`mobileStickyCta ${scrolled ? 'visible' : ''}`}>
         <a href="tel:+393485721282">
           Chiama
         </a>
