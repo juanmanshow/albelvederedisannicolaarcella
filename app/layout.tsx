@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: {
     default: 'Al Belvedere di San Nicola Arcella',
     template: '%s | Al Belvedere',
-    description: '...',
-    themeColor: '#173746',
+
   },
   description:
     'Boutique apartments in San Nicola Arcella, Calabria. Appartamenti mediterranei vicino all’Arcomagno e alla Riviera dei Cedri.',
+  themeColor: '#173746',
   keywords: [
     'San Nicola Arcella',
     'Al Belvedere',
