@@ -405,8 +405,7 @@ export default function Home() {
 
             <p>
               “Sono rimasto profondamente colpito dalla pulizia impeccabile e dal&apos;atmosfera piacevole di questa casa. 
-              <br />È stato recentemente ristrutturato, è spazioso, luminoso e molto confortevole, con mobili ed elettrodomestici nuovi che rendono il soggiorno estremamente piacevole.
-              <br />Mi sono sentito accolto e supportato ...”
+              <br />È stato recentemente ristrutturato, è spazioso, luminoso e molto confortevole, con mobili...”
             </p>
 
             <span>— Lilia, Germania</span>
@@ -443,7 +442,7 @@ export default function Home() {
             <div className="reviewStars">★★★★</div>
 
             <p>
-              “Appartamento pulito e carino.Si potrebbero aggiungere alcuni articoli per la casa, ad esempio grandi tazze da caffè.apribottiglie..pentola grande per la pasta..piatto per la colazione..forse un tavolo pulito e 2 Sedie per il balcone..altrimenti bella posizione..lo consigliamo”
+              “Appartamento pulito e carino.Si potrebbero aggiungere alcuni articoli per la casa, ad esempio grandi tazze da caffè.apribottiglie...altrimenti bella posizione..lo consigliamo”
             </p>
 
             <span>— Birgit, Germania</span>
