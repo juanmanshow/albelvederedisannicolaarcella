@@ -180,7 +180,7 @@ export default function Home() {
             }
             className="discoverLink"
           >
-            Scopri l'appartamento
+            Scopri l&apos;appartamento
           </a>
 
           <a href="#contact" className="miniButton">
