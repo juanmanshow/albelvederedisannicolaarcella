@@ -462,7 +462,7 @@ export default function Home() {
           </a>
 
           <a
-            href="https://www.booking.com/"
+            href="https://www.booking.com/hotel/it/al-belvedere-di-san-nicola-arcella.it.html?label=gen173nr-10CAEoggI46AdIM1gEaHGIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4Ar2A-c8GwAIB0gIkM2VjMzM4ZjEtODk3OS00ZmRjLTgwNDgtMWI2MjY3NzM2NzE02AIB4AIB&aid=304142&ucfs=1&arphpl=1&checkin=2026-06-29&checkout=2026-07-03"
             target="_blank"
             rel="noopener noreferrer"
             className="btn secondary"
