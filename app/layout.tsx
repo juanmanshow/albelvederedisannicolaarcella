@@ -56,6 +56,10 @@ export const metadata: Metadata = {
 
     type: 'website',
 
+    other: {
+      'fb:app_id': '948299761378923',
+    },
+
     images: [
       {
         url: '/images/hero.jpg',
