@@ -39,6 +39,48 @@ const placeImages = [
 ];
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+  
+    name: "Al Belvedere di San Nicola Arcella",
+  
+    description:
+      "Boutique apartments in San Nicola Arcella, Calabria, near Arcomagno and Riviera dei Cedri.",
+  
+    url: "https://albelvederedisannicolaarcella.com",
+  
+    image: [
+      "https://albelvederedisannicolaarcella.com/images/hero.jpg"
+    ],
+  
+    telephone: "+393485721282",
+  
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Corso Umberto I, 12",
+      addressLocality: "San Nicola Arcella",
+      addressRegion: "Calabria",
+      postalCode: "87020",
+      addressCountry: "IT"
+    },
+  
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "39.840",
+      longitude: "15.792"
+    },
+  
+    areaServed: {
+      "@type": "Place",
+      name: "Riviera dei Cedri"
+    },
+  
+    sameAs: [
+      "https://maps.app.goo.gl/zpQdoTt6tzh8jyaK7",
+      "https://www.booking.com/hotel/it/al-belvedere-di-san-nicola-arcella.it.html"
+    ]
+  };
   const [scrolled, setScrolled] = useState(false);
   const [placeImageIndex, setPlaceImageIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -72,7 +114,14 @@ export default function Home() {
     };
   }, [menuOpen]);;
   return (
-    <main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <main>
       <header className={`nav ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menuIsOpen' : ''}`}>
         
       <div className="brand">
@@ -600,8 +649,8 @@ export default function Home() {
       >
         ↑
       </button>
-
+      
     </main>
+    </>
   );
 }
-
