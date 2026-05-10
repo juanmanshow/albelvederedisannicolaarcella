@@ -428,6 +428,18 @@ export default function Home() {
             Grazie per la comprensione.
           </p>
         </details>
+        <details>
+          <summary>La colazione è inclusa?</summary>
+          <p>
+            No, la colazione non è inclusa.
+            <br /><br />
+            Gli appartamenti dispongono però di cucina attrezzata completa di stoviglie, tazze,
+            e moka così da permettere agli ospiti di vivere il soggiorno in totale autonomia.
+            <br /><br />
+            Nelle immediate vicinanze sono inoltre presenti bar, pasticcerie e locali
+            dove fare colazione nel centro di San Nicola Arcella o direttamente al Belvedere.
+          </p>
+        </details>
       </section>
 
       <section id="contact" className="contact">
