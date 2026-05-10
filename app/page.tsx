@@ -42,6 +42,7 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [placeImageIndex, setPlaceImageIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileApartmentsOpen, setMobileApartmentsOpen] = useState(false);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -115,7 +116,30 @@ export default function Home() {
       </header>
       <div className={`mobileMenu ${menuOpen ? 'open' : ''}`}>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Prenota</a>
-          <a href="#apartments" onClick={() => setMenuOpen(false)}>Appartamenti</a>
+          <div className="mobileApartmentsMenu">
+            <button
+              className="mobileApartmentsTrigger"
+              onClick={() => setMobileApartmentsOpen(!mobileApartmentsOpen)}
+            >
+              Appartamenti
+            </button>
+
+            <div className={`mobileApartmentsLinks ${mobileApartmentsOpen ? 'open' : ''}`}>
+              <Link
+                href="/appartamento-superior-con-balcone"
+                onClick={() => setMenuOpen(false)}
+              >
+                Superior con balcone
+              </Link>
+
+              <Link
+                href="/appartamento-superior"
+                onClick={() => setMenuOpen(false)}
+              >
+                Superior
+              </Link>
+            </div>
+          </div>
           <a href="#place" onClick={() => setMenuOpen(false)}>San Nicola Arcella</a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>Contatti</a>
           <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
@@ -279,8 +303,7 @@ export default function Home() {
         </div>
 
         <div className="amenityStrip">
-          <img src="/images/kitchen1.jpg"     alt="Mediterranean kitchen apartment in San Nicola Arcella"
- />
+          <img src="/images/kitchen1.jpg"     alt="Mediterranean kitchen apartment in San Nicola Arcella"/>
           <img src="/images/bathroom1.jpg" alt="Private bathroom apartment Calabria" />
           <img src="/images/detail1.jpg" alt="Interior design detail Al Belvedere apartment" />
           <img src="/images/balcony1.jpg" alt="Balcony apartment in San Nicola Arcella" />

@@ -471,10 +471,29 @@ footer {
 }
 
 .discoverLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+  border-radius: 999px;
+
+  background: transparent;
+  border: 1px solid var(--blue-dark);
+
+  color: var(--blue-dark);
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 14px;
-  color: var(--blue-dark);
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+.discoverLink:hover {
+  background: var(--blue-dark);
+  color: white;
 }
 
 .miniButton {
@@ -952,6 +971,7 @@ footer {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s ease;
+    gap: 0;
   }
 
   .mobileMenu.open {
@@ -963,6 +983,16 @@ footer {
     font-family: Georgia, serif;
     font-size: 34px;
     color: var(--navy);
+  }
+
+  .mobileMenu > a {
+    margin: 18px 0;
+  }
+
+  .mobileApartmentsMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .brandTitle {
@@ -1179,10 +1209,21 @@ footer {
 }
 
 .galleryThumbs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
   gap: 10px;
   margin-top: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.galleryThumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.galleryThumb {
+  flex: 0 0 220px;
+  height: 160px;
 }
 
 .galleryThumb {
@@ -1398,4 +1439,48 @@ footer {
 
 #place {
   scroll-margin-top: 140px;
+}
+
+.mobileApartmentsMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 22px 0;
+}
+
+.mobileApartmentsTrigger {
+  background: transparent;
+  border: none;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  color: var(--navy);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.mobileApartmentsLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 0;
+  transition: all 0.35s ease;
+}
+
+.mobileApartmentsLinks.open {
+  max-height: 80px;
+  opacity: 1;
+  margin-top: 18px;
+}
+
+.mobileApartmentsLinks a {
+  margin: 0 !important;
+  font-size: 18px !important;
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  opacity: 0.72;
 }

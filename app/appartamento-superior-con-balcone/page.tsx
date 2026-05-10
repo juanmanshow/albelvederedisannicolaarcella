@@ -23,12 +23,30 @@ const gallery = [
   '/images/kitchen1.jpg',
   '/images/bathroom1.jpg',
   '/images/sofa1.jpg',
+  '/images/intro1.jpg',
+  '/images/fullview1.jpg',
+  '/images/bedroomall1.jpg',
+  '/images/bedroomall1_1.jpg',
+  '/images/bedroomdetail1.jpg',
+  '/images/wardrobe1.jpg',
+  '/images/bathroom1_1.jpg',
+  '/images/soggiorno1.jpg',
+  '/images/sofabed1.jpg',
+  '/images/mosquitonet1.jpg',
+  '/images/arco1.jpg',
+  '/images/hanger1.jpg',
+  '/images/pianerottolo1.jpg',
+  '/images/pianerottoloshared.jpg',
+  '/images/external_view.jpg',
+  '/images/belvedere.jpg',
+  '/images/arcomagno.jpg',
 ];
 
 export default function AppartamentoSuperiorConBalcone() {
   const [open, setOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileApartmentsOpen, setMobileApartmentsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(true);
 
   const slides = gallery.map((src) => ({ src }));
@@ -58,19 +76,19 @@ export default function AppartamentoSuperiorConBalcone() {
   return (
     <main>
       <header className={`nav scrolled ${menuOpen ? 'menuIsOpen' : ''}`}>
-        <div className="brand">
-          <img
-            src="/images/logo-dark.png"
-            alt="Logo Al Belvedere di San Nicola Arcella"
-            className="brandLogo"
-          />
+      <Link href="/" className="brand">
+        <img
+          src="/images/logo-dark.png"
+          alt="Logo Al Belvedere di San Nicola Arcella"
+          className="brandLogo"
+        />
 
-          <div className="brandText">
-            <span className="brandTitle">
-              Al Belvedere di San Nicola Arcella
-            </span>
-          </div>
+        <div className="brandText">
+          <span className="brandTitle">
+            Al Belvedere di San Nicola Arcella
+          </span>
         </div>
+      </Link>
 
         <nav>
         <Link href="/">Home</Link>
@@ -111,9 +129,30 @@ export default function AppartamentoSuperiorConBalcone() {
           Prenota
         </Link>
 
-        <Link href="/#apartments" onClick={() => setMenuOpen(false)}>
-          Appartamenti
-        </Link>
+        <div className="mobileApartmentsMenu">
+          <button
+            className="mobileApartmentsTrigger"
+            onClick={() => setMobileApartmentsOpen(!mobileApartmentsOpen)}
+          >
+            Appartamenti
+          </button>
+
+          <div className={`mobileApartmentsLinks ${mobileApartmentsOpen ? 'open' : ''}`}>
+            <Link
+              href="/appartamento-superior-con-balcone"
+              onClick={() => setMenuOpen(false)}
+            >
+              Superior con balcone
+            </Link>
+
+            <Link
+              href="/appartamento-superior"
+              onClick={() => setMenuOpen(false)}
+            >
+              Superior
+            </Link>
+          </div>
+        </div>
 
         <Link href="/#place" onClick={() => setMenuOpen(false)}>
           San Nicola Arcella
@@ -321,7 +360,7 @@ export default function AppartamentoSuperiorConBalcone() {
         </div>
       </footer>
 
-      <div className={`mobileStickyCta ${scrolled ? 'compact' : ''}`}>
+      <div className={`mobileStickyCta ${scrolled ? 'visible' : ''}`}>
         <a href="tel:+393485721282">Chiama</a>
 
         <a
