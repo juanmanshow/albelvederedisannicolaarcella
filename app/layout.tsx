@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://albelvederedisannicolaarcella.com',
   },
+  
+  themeColor: '#173746',
 
   icons: {
     icon: '/favicon.ico',
