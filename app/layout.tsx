@@ -14,6 +14,15 @@ export const metadata: Metadata = {
     template: '%s | Al Belvedere',
   },
 
+  alternates: {
+    canonical: 'https://albelvederedisannicolaarcella.com',
+  },
+  
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  }, 
+
   description:
     'Boutique apartments in San Nicola Arcella, Calabria. Appartamenti mediterranei vicino all’Arcomagno e alla Riviera dei Cedri.',
 

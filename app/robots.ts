@@ -6,6 +6,8 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://albelvederedisannicolaarcella.it/sitemap.xml',
+
+    sitemap:
+      'https://albelvederedisannicolaarcella.com/sitemap.xml',
   }
 }
