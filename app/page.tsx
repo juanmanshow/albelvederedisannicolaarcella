@@ -150,7 +150,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <Link href="/#place">San Nicola Arcella</Link>
+        <Link href="/san-nicola-arcella">San Nicola Arcella</Link>
         <Link href="/#reviews">Recensioni</Link>
         <Link href="/#contact">Contatti</Link>
         <Link href="/#faq">FAQ</Link>
