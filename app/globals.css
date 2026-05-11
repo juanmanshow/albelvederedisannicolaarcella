@@ -1698,3 +1698,11 @@ footer {
     grid-row: auto;
   }
 }
+
+.seoHeroImage {
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}

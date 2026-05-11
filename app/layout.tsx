@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: '/images/hero.jpg',
+        url: '/images/og-home.png',
         width: 1200,
         height: 630,
         alt: 'Al Belvedere di San Nicola Arcella',
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     description:
       'Boutique apartments in Calabria between sea, Arcomagno and Riviera dei Cedri.',
 
-    images: ['/images/hero.jpg'],
+    images: ['/images/og-home.png'],
   },
 };
 
