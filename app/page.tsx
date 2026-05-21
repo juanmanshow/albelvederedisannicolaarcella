@@ -13,6 +13,8 @@ import {
   Sheet,
   Smartphone,
   MapPinned,
+  Wifi,
+  WashingMachine,
 } from 'lucide-react';
 
 const apartments = [
@@ -150,7 +152,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <Link href="/san-nicola-arcella">San Nicola Arcella</Link>
+        <Link href="/#place">San Nicola Arcella</Link>
         <Link href="/#reviews">Recensioni</Link>
         <Link href="/#contact">Contatti</Link>
         <Link href="/#faq">FAQ</Link>
@@ -196,11 +198,6 @@ export default function Home() {
 
       <section className="hero">
         <div className="heroOverlay" />
-        <img
-          src="/images/og-home.png"
-          alt="San Nicola Arcella, Arcomagno e Riviera dei Cedri"
-          className="seoHeroImage"
-        />
         <div className="heroContent">
           <p className="eyebrow">San Nicola Arcella · Riviera dei Cedri</p>
           <h1>Al Belvedere di San Nicola Arcella</h1>
@@ -337,6 +334,14 @@ export default function Home() {
           <span>
             <CookingPot size={20} />
             Cucina attrezzata
+          </span>
+          <span>
+            <Wifi size={20} />
+            Wi-Fi Veloce
+          </span>
+          <span>
+            <WashingMachine size={20} />
+            Lavatrice
           </span>
           <span>
             <Bath size={20} />
