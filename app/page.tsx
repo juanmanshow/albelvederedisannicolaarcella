@@ -600,9 +600,9 @@ export default function Home() {
               Calabria, Italia
               <br />
               <br />
-              CIN: IT078125C2YDTUYBJV
+              CIN: IT078125C2BWUTQN8J | IT07125C2G777HO93
               <br />
-              CIR: 078125-AAT-00066
+              CIR: 078125-AAT-00088 | 078125-AAT-00087
             </p>
 
             
